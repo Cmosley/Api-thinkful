@@ -13,11 +13,13 @@ $(function(){
         var params = {
             part: 'snippet', 
             key: 'AIzaSyDDGYN5mw6vv4tjAhVZ9y07g-NvyK94TaU',
+            type: 'video',
+            maxResults: 10,
             q: searchTerm
         };
         url = 'https://www.googleapis.com/youtube/v3/search'; 
 
-        $.getJSON(url, params, function(data){
+        $.getJSON(url, params, function(data, items){
             showResults(data.items);
         }); 
     }
@@ -25,9 +27,9 @@ $(function(){
 
     function showResults(results) {
         var resultList = ""; 
-        $.each(results, function(index, items){
-            resultList += '<p>' + items + '</p>';
-            console.log('displaying');
+        $.each(results, function(data, items){
+            resultList += '<p>'  + data.items + '</p>';
+            console.log('display');
             
     });
         $('#search-results').html(resultList);
