@@ -18,6 +18,42 @@ $(function(){
         url = 'https://www.googleapis.com/youtube/v3/search'; 
 
         $.getJSON(url, params, function(data){
+            showResults(data.items);
+        }); 
+    }
+    
+
+    function showResults(results) {
+        var resultList = ""; 
+        $.each(results, function(index, items){
+            resultList += '<p>' + items + '</p>';
+            console.log('displaying');
+            
+    });
+        $('#search-results').html(resultList);
+    }
+/*
+
+
+$(function(){
+
+    $('#search-term').submit(function(event){
+        event.preventDefault();
+        var searchTerm = $('#query').val(); 
+        getRequest(searchTerm);
+        });
+    }); 
+
+    
+
+    function getRequest(searchTerm){
+        var params = {
+            s: searchTerm, 
+            r: 'json'
+        };
+        url = 'http://omdbapi.com'; 
+
+        $.getJSON(url, params, function(data){
             showResults(data.Search);
         }); 
     }
@@ -26,9 +62,11 @@ $(function(){
     function showResults(results) {
         var resultList = ""; 
         $.each(results, function(index, value){
-            resultList += '<p>' + value.item.snippet.thumbnail.medium.url + '</p>';
-            console.log('displaying');
-            
+            resultList += '<p>' + value.Title + '</p>';
     });
         $('#search-results').html(resultList);
     }
+    
+
+        
+*/

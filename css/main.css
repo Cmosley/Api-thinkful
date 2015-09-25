@@ -1,35 +1,23 @@
-$(function(){
+h1 {
+    margin: auto;
+    text-align: center;
+}
 
-    $('#search-term').submit(function(event){
-        event.preventDefault();
-        var searchTerm = $('#query').val(); 
-        getRequest(searchTerm);
-        });
-    }); 
+#query {
+    display: inline-block;
+    border-color: #A44747;
+    border-width: 10px; 
+    border-style: solid;
+    text-align: center;
+  
+}
 
-    
+#search-term {
+    width: 200px;
+    margin: auto;
+}
 
-    function getRequest(searchTerm){
-        var params = {
-            s: searchTerm, 
-            r: 'json'
-        };
-        url = 'http://omdbapi.com'; 
-
-        $.getJSON(url, params, function(data){
-            showResults(data.Search);
-        }); 
-    }
-    
-
-    function showResults(results) {
-        var resultList = ""; 
-        $.each(results, function(index, value){
-            resultList += '<p>' + value.Title + '</p>';
-    });
-        $('#search-results').html(resultList);
-    }
-	
-
-        
-    
+#search-results {
+    width: 600px;
+    margin: auto;
+}
