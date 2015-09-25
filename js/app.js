@@ -29,7 +29,7 @@ $(function(){
         var resultList = ""; 
         $.each(results, function(data, items){
             resultList += '<p>'  + data.items + '</p>';
-            console.log('display');
+            console.log(results);
             
     });
         $('#search-results').html(resultList);
