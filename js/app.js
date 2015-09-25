@@ -20,7 +20,8 @@ $(function(){
         url = 'https://www.googleapis.com/youtube/v3/search'; 
 
         $.getJSON(url, params, function(data, items){
-            showResults(data.items);
+            showResults(items.videoId);
+            console.log(item.id.videoId, item.snippet,title);
         }); 
     }
     
@@ -28,7 +29,7 @@ $(function(){
     function showResults(results) {
         var resultList = ""; 
         $.each(results, function(data, items){
-            resultList += '<p>'  + data.items + '</p>';
+            resultList += '<p>'  + items.id.videoId + '</p>';
             console.log(data);
             
     });
