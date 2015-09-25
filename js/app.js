@@ -20,8 +20,8 @@ $(function(){
         url = 'https://www.googleapis.com/youtube/v3/search'; 
 
         $.getJSON(url, params, function(data, items){
-            showResults(items.videoId);
-            console.log(item.id.videoId, item.snippet,title);
+            showResults(data.items);
+            console.log(item.id.videoId, item.snippet.title);
         }); 
     }
     
