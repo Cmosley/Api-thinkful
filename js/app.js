@@ -21,7 +21,7 @@ $(function(){
 
         $.getJSON(url, params, function(data, items){
             showResults(data.items);
-            console.log(item.id.videoId, item.snippet.title);
+            console.log(items.snippet.thumbnails.medium.url);
         }); 
     }
     
@@ -29,7 +29,7 @@ $(function(){
     function showResults(results) {
         var resultList = ""; 
         $.each(results, function(data, items){
-            resultList += '<p>'  + items.id.videoId + '</p>';
+            resultList += '<img src=" ' + items.snippet.thumbnails.medium.url + '"/>';
             console.log(data);
             
     });
